@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: samriddhi-signal-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: BOT_PHONE
+        sync: false        # You'll set this manually on Render dashboard
+      - key: SIGNAL_API_URL
+        sync: false        # You'll set this manually on Render dashboard
